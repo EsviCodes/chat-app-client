@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import url from "../constants";
 import ChatroomForm from "./ChatroomForm";
+import { connect } from "react-redux";
+import { addMessages } from "../actions/messages-actions";
 
-export default class Chatroom extends Component {
+class Chatroom extends Component {
   state = {
     messages: []
   };
@@ -17,6 +19,7 @@ export default class Chatroom extends Component {
     this.source.onmessage = event => {
       //console.log("Got a message!", event);
       const messages = JSON.parse(event.data);
+      this.props.addMessages(messages);
       this.setState({
         messages
       });
@@ -39,3 +42,14 @@ export default class Chatroom extends Component {
     );
   }
 }
+
+const mapStateToProps = reduxState => {
+  return { messages: reduxState.message };
+};
+
+const mapDispatchToProps = { addMessages };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Chatroom);
