@@ -19,7 +19,7 @@ export default props => {
         onChange={props.onChange}
         placeholder="password"
       />
-      <input type="submit" />
+      <button type="submit">Log In </button>
     </form>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import { login } from "../actions/auth-actions";
-import { Redirect } from "react-router-dom";
+//import { Redirect } from "react-router-dom";
 
 class LoginFormContainer extends React.Component {
   state = { email: "", password: "" };
@@ -19,9 +19,16 @@ class LoginFormContainer extends React.Component {
   };
 
   render() {
-    return this.props.token ? (
-      <Redirect to="/chatroom" />
-    ) : (
+    return (
+      // return this.props.token ? (
+      //   <Redirect to="/chatroom" />
+      // ) : (
+      //   <LoginForm
+      //     onSubmit={this.onSubmit}
+      //     onChange={this.onChange}
+      //     values={this.state}
+      //   />
+      // );
       <LoginForm
         onSubmit={this.onSubmit}
         onChange={this.onChange}

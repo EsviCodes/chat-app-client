@@ -3,7 +3,6 @@ import url from "../constants";
 import ChatroomForm from "./ChatroomForm";
 import { connect } from "react-redux";
 import { addMessages } from "../actions/messages-actions";
-import LoginFormContainer from "./LoginFormContainer";
 
 class Chatroom extends Component {
   source = new EventSource(`${url}/stream`);
@@ -29,7 +28,7 @@ class Chatroom extends Component {
     return (
       <div>
         <h2>Hello from the Chat Room</h2>
-        <LoginFormContainer />
+
         <h3>Messages</h3>
         <ul>
           {this.props.messages.map(message => (
