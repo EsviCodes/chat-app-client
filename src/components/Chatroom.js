@@ -5,9 +5,6 @@ import { connect } from "react-redux";
 import { addMessages } from "../actions/messages-actions";
 
 class Chatroom extends Component {
-  state = {
-    messages: []
-  };
   source = new EventSource(`${url}/stream`);
 
   componentDidMount() {
@@ -33,7 +30,7 @@ class Chatroom extends Component {
         <h2>Hello from the Chat Room</h2>
         <h3>Messages</h3>
         <ul>
-          {this.state.messages.map(message => (
+          {this.props.messages.map(message => (
             <li key={message.id}>{message.message}</li>
           ))}
         </ul>
