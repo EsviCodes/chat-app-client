@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import url from "../constants";
+import * as request from "superagent";
 
 export default class extends Component {
   state = {
@@ -8,6 +10,12 @@ export default class extends Component {
   onSubmit = event => {
     //console.log("Submit ChatRoomForm");
     event.preventDefault();
+
+    request
+      .post(`${url}/message`)
+      .send({ message: this.state.message })
+      .catch(console.error);
+
     this.setState({
       message: ""
     });
