@@ -19,7 +19,11 @@ class App extends Component {
 
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={LoginFormContainer} />
-        <Route path="/chatroom" exact component={Chatroom} />
+        {this.props.loggedIn ? (
+          <Route path="/chatroom" exact component={Chatroom} />
+        ) : (
+          <p>Log in to go to the Chat Room</p>
+        )}
       </div>
     );
   }
