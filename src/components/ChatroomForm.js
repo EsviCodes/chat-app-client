@@ -13,6 +13,7 @@ export default class extends Component {
 
     request
       .post(`${url}/message`)
+      // auth
       .send({ message: this.state.message })
       .catch(console.error);
 
